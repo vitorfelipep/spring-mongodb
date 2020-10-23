@@ -21,8 +21,7 @@ class UserController(
 	@ApiOperation(value = "Busca todos os usuarios cadastrados no sistema sem paginação", consumes = "application/json")
 	@ResponseStatus(HttpStatus.OK)
 	@ApiResponses(value = [
-		ApiResponse(code = 200, message = "Retorna uma lista de usuários", response = List::class, responseContainer = "List"),
-		ApiResponse(code = 404, message = "user.not.found")
+		ApiResponse(code = 200, message = "Retorna uma lista de usuários", response = List::class, responseContainer = "List")
 	])
 	fun findAll(): List<User> = userService.findAll()
 	
@@ -34,12 +33,12 @@ class UserController(
 		ApiResponse(code = 404, message = "user.not.found")
 	])
 	fun findAllUsersWithPagination(
-		@RequestParam(value = "search", required = false) search: String?,
-		@RequestParam(value = "age", required = false) age: Int?,
-		@RequestParam(value = "page", defaultValue = "0") page: Int,
-		@RequestParam(value = "size", defaultValue = "5") size: Int,
-		@RequestParam(value = "sort", defaultValue = "id") sort: String,
-		@RequestParam(value = "direction", defaultValue = "ASC") direction: String
+			@RequestParam(value = "search", required = false) search: String?,
+			@RequestParam(value = "age", required = false) age: Int?,
+			@RequestParam(value = "page", defaultValue = "0") page: Int,
+			@RequestParam(value = "size", defaultValue = "5") size: Int,
+			@RequestParam(value = "sort", defaultValue = "id") sort: String,
+			@RequestParam(value = "direction", defaultValue = "ASC") direction: String
 	): Page<User> = userService.findAllUsers(search, age, page, size, sort, direction)
 	
 	@GetMapping("/name/{search}", produces = ["application/json"])
@@ -52,11 +51,11 @@ class UserController(
 		ApiResponse(code = 404, message = "user.not.found")
 	])
 	fun findAllWithNamedQuerySpringDataJPA(
-		@RequestParam(value = "search", required = false) search: String?,
-		@RequestParam(value = "page", defaultValue = "0") page: Int,
-		@RequestParam(value = "size", defaultValue = "5") size: Int,
-		@RequestParam(value = "sort", defaultValue = "id") sort: String,
-		@RequestParam(value = "direction", defaultValue = "ASC") direction: String
+			@RequestParam(value = "search", required = false) search: String?,
+			@RequestParam(value = "page", defaultValue = "0") page: Int,
+			@RequestParam(value = "size", defaultValue = "5") size: Int,
+			@RequestParam(value = "sort", defaultValue = "id") sort: String,
+			@RequestParam(value = "direction", defaultValue = "ASC") direction: String
 	): Page<User>? = userService.finByNameOrId(search, page, size, sort, direction)
 	
 	@PostMapping(produces = ["application/json"])

@@ -12,10 +12,13 @@ class QUser : EntityPathBase<User>, Serializable {
 	
 	@JvmField
 	var age = createNumber("age", Int::class.java)
+	
 	@JvmField
 	var id = createString("id")
+	
 	@JvmField
 	var name = createString("name")
+	
 	@JvmField
 	var email = createString("email")
 	
@@ -24,6 +27,7 @@ class QUser : EntityPathBase<User>, Serializable {
 	constructor(metadata: PathMetadata?) : super(User::class.java, metadata) {}
 	
 	companion object {
+		
 		@JvmField
 		val user = QUser("user")
 	}
