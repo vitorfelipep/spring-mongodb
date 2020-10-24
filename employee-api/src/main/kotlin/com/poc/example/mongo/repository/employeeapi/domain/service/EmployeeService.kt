@@ -14,7 +14,7 @@ import java.math.BigDecimal
 
 @Service
 class EmployeeService(
-	val employeeRepository: EmployeeRepository
+		val employeeRepository: EmployeeRepository
 ) {
 	
 	fun listAllEmployees(): List<EmployeeDto> = employeeRepository.findAll().map { EmployeeDto(it) }
@@ -22,11 +22,13 @@ class EmployeeService(
 	fun save(employeeDto: EmployeeDto) = EmployeeDto(employeeRepository.save(Employee(employeeDto)))
 	
 	fun update(id: String, employeeDto: EmployeeDto): EmployeeDto? =
-			if (employeeRepository.findById(id).isPresent) {
+			if (employeeIsPresent(id)) {
 				EmployeeDto(employeeRepository.save(Employee(employeeDto)))
 			} else {
 				throw EmployeeException(EmployeeError.INVALID_IDENTIFIER_PARAMETERS)
 			}
+	
+	private fun employeeIsPresent(id: String) = employeeRepository.findById(id).isPresent
 	
 	fun delete(id: String) = employeeRepository.deleteById(id)
 	
@@ -41,7 +43,7 @@ class EmployeeService(
 		val pages: Pageable = PageRequest.of(page, size, Sort.Direction.valueOf(direction), sort)
 		val matcher = ExampleMatcher.matching()
 				.withMatcher("name", contains().ignoreCase())
-				.withMatcher( "position", contains().ignoreCase())
+				.withMatcher("position", contains().ignoreCase())
 				.withIgnorePaths("id", "description", "salary", "band")
 		
 		val example: Example<Employee> = Example.of(
@@ -58,10 +60,10 @@ class EmployeeService(
 			example: Example<Employee>,
 			pages: Pageable
 	) = if (search != null || position != null) {
-			employeeRepository.findAll(example, pages).map { EmployeeDto(it) }
-		} else {
-			employeeRepository.findAll(pages).map { EmployeeDto(it) }
-		}
+		employeeRepository.findAll(example, pages).map { EmployeeDto(it) }
+	} else {
+		employeeRepository.findAll(pages).map { EmployeeDto(it) }
+	}
 	
 	private fun createEmployeeToExample(search: String?, position: String?) =
 			Employee("id", search, "", BigDecimal.ZERO, "", position)

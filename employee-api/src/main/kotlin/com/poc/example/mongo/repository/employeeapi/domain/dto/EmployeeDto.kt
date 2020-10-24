@@ -12,16 +12,17 @@ class EmployeeDto(
 		val position: String
 ) {
 	
-	constructor(employee: Employee): this(
-		id = employee.id ?: "",
-		name = employee.name ?: "",
-		description = employee.description ?: "",
-		salary = employee.salary ?: BigDecimal.ZERO,
-		band = employee.band ?: "",
-		position = employee.position ?: ""
+	constructor(employee: Employee) : this(
+			id = employee.id ?: "",
+			name = employee.name ?: "",
+			description = employee.description ?: "",
+			salary = employee.salary ?: BigDecimal.ZERO,
+			band = employee.band ?: "",
+			position = employee.position ?: ""
 	)
 	
 	override fun toString(): String {
 		return "EmployeeDto(name='$name', description='$description', salary=$salary, band='$band', position='$position')"
 	}
+	
 }

@@ -8,26 +8,27 @@ import java.math.BigDecimal
 
 @Document("employee")
 class Employee(
-	@Id
-	val id: String?,
-	@Indexed
-	val name: String?,
-	val description: String?,
-	val salary: BigDecimal?,
-	val band: String?,
-	val position: String?
+		@Id
+		val id: String?,
+		@Indexed
+		val name: String?,
+		val description: String?,
+		val salary: BigDecimal?,
+		val band: String?,
+		val position: String?
 ) {
 	
-	constructor(employeeDto: EmployeeDto): this(
-		id = employeeDto.id,
-		name = employeeDto.name,
-		description = employeeDto.description,
-		salary = employeeDto.salary,
-		band = employeeDto.band,
-		position = employeeDto.position
+	constructor(employeeDto: EmployeeDto) : this(
+			id = employeeDto.id,
+			name = employeeDto.name,
+			description = employeeDto.description,
+			salary = employeeDto.salary,
+			band = employeeDto.band,
+			position = employeeDto.position
 	)
 	
 	override fun toString(): String {
 		return "Employee(id='$id', name='$name', description='$description', salary=$salary, band='$band', position='$position')"
 	}
+	
 }

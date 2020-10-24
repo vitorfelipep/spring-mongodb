@@ -2,6 +2,7 @@ package com.poc.example.mongo.repository.employeeapi.domain.controller
 
 import com.poc.example.mongo.repository.employeeapi.domain.dto.EmployeeDto
 import com.poc.example.mongo.repository.employeeapi.domain.service.EmployeeService
+import io.swagger.annotations.Api
 import io.swagger.annotations.ApiOperation
 import io.swagger.annotations.ApiResponse
 import io.swagger.annotations.ApiResponses
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*
 import springfox.documentation.annotations.ApiIgnore
 import java.security.Principal
 
+@Api(value = "employee-api", description = "Disponibiliza os endpoints de empregados")
 @RestController
 @RequestMapping("/v1/employees")
 class EmployeeController(
@@ -68,7 +70,7 @@ class EmployeeController(
 		ApiResponse(code = 404, message = "employee.not.found")
 	])
 	fun deleteCampus(
-		@PathVariable id: String
+			@PathVariable id: String
 	) = employeeService.delete(id)
 	
 }

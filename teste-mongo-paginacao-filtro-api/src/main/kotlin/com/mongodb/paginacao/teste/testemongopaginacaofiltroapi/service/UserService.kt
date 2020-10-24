@@ -1,6 +1,5 @@
 package com.mongodb.paginacao.teste.testemongopaginacaofiltroapi.service
 
-
 import com.mongodb.paginacao.teste.testemongopaginacaofiltroapi.entity.QUser
 import com.mongodb.paginacao.teste.testemongopaginacaofiltroapi.entity.User
 import com.mongodb.paginacao.teste.testemongopaginacaofiltroapi.repository.UserRepository

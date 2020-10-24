@@ -22,7 +22,7 @@ Qualquer ajuda é bem vinda!
     ```
   docker run -it -v mongodata:/data/db -p 27017:27017 --name mongodb-docker -d mongo
 
-- Não possui variavel de ambiente porém há prorpiedades definidas no application.properties 
+- Não possui variável de ambiente, porém, há propriedades definidas no application.properties 
     
 ```
     spring.data.mongodb.host=localhost
