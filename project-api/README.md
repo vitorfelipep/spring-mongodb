@@ -14,7 +14,7 @@ Poc de API para paginação com mongodb e query utilizando mongo-template para r
 Opção certa para quem quer simplicidade para um contrato padrão com o front-end e opções simples de criação de filtros customizavéis. 
 Vale a pena ficar de olho e utilizar esta implementação. Por ser a mais rápida e com mais exemplos na web, caso tenha algum problema. 
 
-- ##### Mongo-template sob alguns pontos de vista da minha parte
+- ##### Mongo-template sob meu pontos de vista
 
      * A implementação do mongoTemplate criando query com clausulas where que exigem buscas dinâmicas por filtros pede a implementação da classe ``org.springframework.data.mongodb.core.query``,  
        esta implementação foi a mais versátil e a que mais se aporxima de uma implementação fácil para paginação, filtro e ordenação para tabelas com milhares de registros. 
