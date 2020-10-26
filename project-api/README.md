@@ -9,9 +9,12 @@ Poc de API para paginação com mongodb e query utilizando mongo-template para r
 
 - Kotlin na versão 1.3.72
 
-### Contrás e problemas na minha visão
+### Resumo
+ 
+Opção certa para quem quer simplicidade para um contrato padrão com o front-end e opções simples de criação de filtros customizavéis. 
+Vale a pena ficar de olho e utilizar esta implementação. Por ser a mais rápida e com mais exemplos na web, caso tenha algum problema. 
 
-- ##### Contrás
+- ##### Mongo-template sob alguns pontos de vista da minha parte
 
      * A implementação do mongoTemplate criando query com clausulas where que exigem buscas dinâmicas por filtros pede a implementação da classe ``org.springframework.data.mongodb.core.query``,  
        esta implementação foi a mais versátil e a que mais se aporxima de uma implementação fácil para paginação, filtro e ordenação para tabelas com milhares de registros. 
@@ -70,9 +73,10 @@ Poc de API para paginação com mongodb e query utilizando mongo-template para r
      
  * Exige pouco de leitura sob a documentação mas nada muito complexo: [spring-mongodb-docs](https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#reference)
          
-- ##### Problemas
+### Contra na minha visão
      
-     * Necessário um bom entendimento e estudo no regex e a sintáxe criada pelo spring
+- Necessário um bom entendimento e estudo no regex e a sintáxe criada pelo spring para cenários mais complexos
+você vai precisar saber muito bem aonde esta mexendo hahahahhaa
          
 
 ### Prós na minha visão
