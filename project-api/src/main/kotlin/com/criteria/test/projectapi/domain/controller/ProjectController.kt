@@ -27,7 +27,7 @@ class ProjectController(
 	
 	
 	@GetMapping("/search/{search}/description/{description}", produces = ["application/json"])
-	@ApiOperation(value = "Busca todos os projetos cadastrados no sistema com filtro, ordenação e paginação", consumes = "application/json")
+	@ApiOperation(value = "Busca todos os projetos cadastrados no sistema com filtros **serach (nome ou id do projeto), description(descrição do projeto), ordenação e paginação", consumes = "application/json")
 	@ResponseStatus(HttpStatus.OK)
 	@ApiResponses(value = [
 		ApiResponse(code = 200, message = "Retorna uma lista de projetos com paginação", response = Page::class, responseContainer = "List"),
@@ -44,7 +44,7 @@ class ProjectController(
 	
 	@PostMapping(produces = ["application/json"])
 	@ResponseStatus(HttpStatus.CREATED)
-	@ApiOperation(value = "Cria um novo usuário", consumes = "application/json")
+	@ApiOperation(value = "Cria um novo projeto", consumes = "application/json")
 	@ApiResponses(value = [
 		ApiResponse(code = 201, message = "Retorna o usuário salvo", response = ProjectDTO::class)
 	])
